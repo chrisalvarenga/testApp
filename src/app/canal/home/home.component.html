@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <h3>Seguimiento Mensajes</h3>
+            </div>
+            <form  class="py-7" (ngSubmit)="not()" novalidate #f="ngForm">
+                <div class="form-group">
+                  <label for="Telefono">Telefono</label>
+                  <input name="telefono" [(ngModel)]="telefono" type="text" class="form-control" id="formGroupExampleInput" placeholder="Telefono">
+                </div>
+                <div class="form-group">
+                  <label for="formGroupExampleInput2">Mensaje</label>
+                  <input [(ngModel)]="msg" name="msg" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Para su clave {v1}, se ha registrado la gestion {v2} en las oficinas principales">
+                </div>
+                
+                <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                    Notificación</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div *ngFor="let canal of data">
+                <p>{{canal.telefono}}  | Mensaje: {{canal.msg}} para su clave {{canal.clave}}, su consumo es de {{canal.consumo}}
+                    monto a pagar de Lps {{canal.monto}} fecha maxima de pago {{canal.fecha |date:'dd-MM-yyyy'}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
