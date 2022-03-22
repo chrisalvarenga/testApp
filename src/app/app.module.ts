@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './canal/home/home.component';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { CanalModule } from './canal/canal.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     //HomeComponent,
-    //NavBarComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CanalModule
+    CanalModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

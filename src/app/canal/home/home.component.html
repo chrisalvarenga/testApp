@@ -1,29 +1,58 @@
-<div class="container">
+<div class="mb-4">
+    <h3 class="d-inline p-2">Canal Masivos</h3>
+    <span> | </span>
+    <a class="d-inline p-2" href="">Inicio</a>
+    <a class="d-inline p-2" href="">Canales</a>
+    <a class="d-inline p-2" href="">Masivo</a>
+
+</div>
+<div class="container py-4">
     <div class="row">
-        <div class="col-md-6">
-            <div>
+        <div class="col-md-6 bg-white pb-4">
+            <div class="py-4">
                 <h3>Seguimiento Mensajes</h3>
             </div>
-            <form  class="py-7" (ngSubmit)="not()" novalidate #f="ngForm">
+            <form class="py-7" (ngSubmit)="not()">
                 <div class="form-group">
-                  <label for="Telefono">Telefono</label>
-                  <input name="telefono" [(ngModel)]="telefono" type="text" class="form-control" id="formGroupExampleInput" placeholder="Telefono">
+                    <label for="Telefono">Telefono</label>
+                    <input name="telefono" [(ngModel)]="telefono" type="text" class="form-control"
+                        id="formGroupExampleInput" placeholder="Telefono">
                 </div>
                 <div class="form-group">
-                  <label for="formGroupExampleInput2">Mensaje</label>
-                  <input [(ngModel)]="msg" name="msg" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Para su clave {v1}, se ha registrado la gestion {v2} en las oficinas principales">
+                    <label for="formGroupExampleInput2">Mensaje</label>
+                    <input [(ngModel)]="msg" name="msg" type="text" class="form-control" id="formGroupExampleInput2"
+                        placeholder="Para su clave {v1}, se ha registrado la gestion {v2} en las oficinas principales">
                 </div>
-                
-                <button type="submit" class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+
+                <button type="submit" class="mr-4 btn btn-secondary">
                     Notificación</button>
+                <button type="submit" class="mx-4 btn btn-success">
+                    Fecha</button>
+                <button type="submit" class="ml-4 btn btn-primary">
+                    Enviar Mensaje</button>
+
             </form>
+
         </div>
-        <div class="col-md-6">
-            <div *ngFor="let canal of data">
-                <p>{{canal.telefono}}  | Mensaje: {{canal.msg}} para su clave {{canal.clave}}, su consumo es de {{canal.consumo}}
-                    monto a pagar de Lps {{canal.monto}} fecha maxima de pago {{canal.fecha |date:'dd-MM-yyyy'}}
-                </p>
-            </div>
+        <div class="col-md-6 bg-white">
+            <div class="pt-2 pb-4">Información Cliente</div>
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">mensaje</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let canal of data">
+                        <td>{{canal.telefono}}</td>
+                        <td colspan="2">{{canal.msg}} para su clave {{canal.clave}}, su consumo es de {{canal.consumo}}
+                            monto a pagar de Lps {{canal.monto}} fecha maxima de pago {{canal.fecha |date:'dd-MM-yyyy'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

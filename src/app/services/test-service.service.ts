@@ -5,11 +5,14 @@ import { Canal } from '../canal/home/models/canal';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TestServiceService {
 
+  url = 'https://f27c-144-202-100-18.ngrok.io/smartbot/api/test';
+  
   constructor(private httpClient: HttpClient,) { }
 
   public send(canal: Canal): Observable<any> {
-    return this.httpClient.post<any>(`http://747a-190-5-111-244.ngrok.io/api/test`, canal);
+    return this.httpClient.post<any>(`${this.url}`, canal);
   }
 }
